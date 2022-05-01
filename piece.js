@@ -5,7 +5,7 @@ class Piece {
       this.type = type;
       this.player = player;
     }
-  /*
+  
     getOpponent() {
       if (this.player === WHITE_PLAYER) {
         return BLACK_PLAYER;
@@ -136,5 +136,5 @@ class Piece {
       let result = this.getBishopMoves(boardData);
       result = result.concat(this.getRookMoves(boardData));
       return result;
-    } */
+    } 
   }

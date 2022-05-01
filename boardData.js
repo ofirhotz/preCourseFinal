@@ -4,7 +4,7 @@ class BoardData {
   }
 
   initPieces() {
-    // Create list of pieces (32 total)
+    // Create list of pieces (24 total)
     this.pieces = [];
 
 
@@ -18,7 +18,7 @@ class BoardData {
     }
 
   }
-  /*
+  
     // Returns piece in row, col, or undefined if not exists.
     getPiece(row, col) {
       for (const piece of this.pieces) {
@@ -46,5 +46,5 @@ class BoardData {
     isPlayer(row, col, player) {
       const piece = this.getPiece(row, col);
       return piece !== undefined && piece.player === player;
-    } */
+    } 
 }

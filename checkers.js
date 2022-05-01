@@ -5,8 +5,7 @@ const BLACK_PLAYER = 'black';
 const MAN = 'man';
 const KING = 'king';
 
-
- const PIECES = [MAN,'',MAN,'',MAN,'',MAN,''];
+//const PIECES = [MAN,'',MAN,'',MAN,'',MAN,''];
 
 const CHECKERS_BOARD_ID = 'checkers-board';
 
@@ -43,7 +42,7 @@ function tryUpdateSelectedPiece(row, col) {
     if (selectedPiece !== undefined && game.tryMove(selectedPiece, row, col)) {
       selectedPiece = undefined;
       // Recreate whole board - this is not efficient, but doesn't affect user experience
-      createChessBoard(game.boardData);
+      createCheckersBoard(game.boardData);
     } else {
       tryUpdateSelectedPiece(row, col);
     }
@@ -76,7 +75,7 @@ function tryUpdateSelectedPiece(row, col) {
         } else {
           cell.className = 'dark-cell';
         }
-       /* cell.addEventListener('click', () => onCellClick(row, col)); */
+        cell.addEventListener('click', () => onCellClick(row, col)); 
       }
     }
   

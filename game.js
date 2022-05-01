@@ -4,7 +4,7 @@ class Game {
       this.currentPlayer = firstPlayer;
       this.winner = undefined;
     }
-  /*
+  
     // Tries to actually make a move. Returns true if successful.
     tryMove(piece, row, col) {
       const possibleMoves = this.getPossibleMoves(piece);
@@ -32,7 +32,7 @@ class Game {
         return [];
       }
       return piece.getPossibleMoves(this.boardData);
-    } */
+    } 
   }
 
   
