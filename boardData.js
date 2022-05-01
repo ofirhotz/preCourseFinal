@@ -1,23 +1,23 @@
 class BoardData {
-    constructor() {
-      this.initPieces();
+  constructor() {
+    this.initPieces();
+  }
+
+  initPieces() {
+    // Create list of pieces (32 total)
+    this.pieces = [];
+
+
+    for (let i = 0; i < BOARD_SIZE; i = i + 2) {
+      this.pieces.push(new Piece(0, i+1 , MAN, WHITE_PLAYER));
+      this.pieces.push(new Piece(1, i, MAN, WHITE_PLAYER));
+      this.pieces.push(new Piece(2, i + 1, MAN, WHITE_PLAYER));
+      this.pieces.push(new Piece(5, i, MAN, BLACK_PLAYER));
+      this.pieces.push(new Piece(6, i + 1, MAN, BLACK_PLAYER));
+      this.pieces.push(new Piece(7, i, MAN, BLACK_PLAYER));
     }
-  
-    initPieces() {
-      // Create list of pieces (32 total)
-      this.pieces = [];
-      /*
-  
-      for (let i = 0; i < BOARD_SIZE; i++) {
-        this.pieces.push(new Piece(0, i, MAN, WHITE_PLAYER));
-        this.pieces.push(new Piece(1, i,  MAN, WHITE_PLAYER));
-        this.pieces.push(new Piece(2, i,  MAN, WHITE_PLAYER));
-        this.pieces.push(new Piece(5, i, MAN, BLACK_PLAYER));
-        this.pieces.push(new Piece(6, i,  MAN, BLACK_PLAYER));
-        this.pieces.push(new Piece(7, i, MAN, BLACK_PLAYER));
-      } 
-      */
-    }
+
+  }
   /*
     // Returns piece in row, col, or undefined if not exists.
     getPiece(row, col) {
@@ -47,4 +47,4 @@ class BoardData {
       const piece = this.getPiece(row, col);
       return piece !== undefined && piece.player === player;
     } */
-  }
+}
