@@ -5,8 +5,6 @@ const BLACK_PLAYER = 'black';
 const MAN = 'man';
 const KING = 'king';
 
-//const PIECES = [MAN,'',MAN,'',MAN,'',MAN,''];
-
 const CHECKERS_BOARD_ID = 'checkers-board';
 
 let game;
