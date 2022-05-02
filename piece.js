@@ -37,61 +37,57 @@ class Piece {
   }
 
 
-  
 
-
-
-  
-      getManMoves(boardData) {
-        let result = [];
-        let direction = 1;
-        if (this.player === BLACK_PLAYER) {
-          direction = -1;
-        }
-  
-        // man move to empty cell
-        let position = [this.row + direction, this.col + direction];
-        if (boardData.isEmpty(position[0], position[1])) {
-          result.push(position);
-        }
-  
-        position = [this.row + direction, this.col - direction];
-        if (boardData.isEmpty(position[0], position[1])) {
-          result.push(position);
-        }
-        // white man capture opponent piece
-        position = [this.row + direction, this.col + direction];
-        if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1 ) ) {
-          position = [position[0] + 1, position[1] + 1];
-          result.push(position);
-        }
-    
-        position = [this.row + direction, this.col - direction];
-        if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1 ) ) {
-          position = [position[0] + 1, position[1] - 1];
-          result.push(position);
-        } 
-        
-        return result;
-      } 
-
-  getMovesInDirection(directionRow, directionCol, boardData) {
+  getManMoves(boardData) {
     let result = [];
-
-    for (let i = 1; i < BOARD_SIZE; i++) {
-      let row = this.row + directionRow * i;
-      let col = this.col + directionCol * i;
-      if (boardData.isEmpty(row, col)) {
-        result.push([row, col]);
-      } else if (boardData.isPlayer(row, col, this.getOpponent())) {
-        result.push([row, col]);
-        return result;
-      } else if (boardData.isPlayer(row, col, this.player)) {
-        return result;
-      }
+    let direction = 1;
+    if (this.player === BLACK_PLAYER) {
+      direction = -1;
     }
+
+    // white man capture opponent piece
+    let position = [this.row + direction, this.col + direction];
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+      position = [position[0] + 1, position[1] + 1];
+      result.push(position);
+    }
+
+    position = [this.row + direction, this.col - direction];
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+      position = [position[0] + 1, position[1] - 1];
+      result.push(position);
+    }
+    // black man capture opponent piece
+    position = [this.row - 1, this.col - 1];
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+      position = [position[0] - 1, position[1] - 1];
+      result.push(position);
+    }
+    position = [this.row - 1, this.col + 1];
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+      position = [position[0] - 1, position[1] + 1];
+      result.push(position);
+    }
+
+    // return to the player only moves he can capture opponent piece if exsict
+    if (result[0] !== undefined) {
+      return result;
+    }
+
+    // man move to empty cell
+    position = [this.row + direction, this.col + direction];
+    if (boardData.isEmpty(position[0], position[1])) {
+      result.push(position);
+    }
+
+    position = [this.row + direction, this.col - direction];
+    if (boardData.isEmpty(position[0], position[1])) {
+      result.push(position);
+    }
+
     return result;
   }
+
 
 
 
@@ -104,45 +100,19 @@ class Piece {
     return result;
   }
 
-
-  getKingMoves(boardData) {
+  getMovesInDirection(directionRow, directionCol, boardData) {
     let result = [];
-    result = result.concat(this.getMovesInDirection(-1, 0, boardData));
-    result = result.concat(this.getMovesInDirection(1, 0, boardData));
-    result = result.concat(this.getMovesInDirection(0, -1, boardData));
-    result = result.concat(this.getMovesInDirection(0, 1, boardData));
+
+    for (let i = 1; i < BOARD_SIZE; i++) {
+      let row = this.row + directionRow * i;
+      let col = this.col + directionCol * i;
+      if (boardData.isEmpty(row, col)) {
+        result.push([row, col]);
+      } else if (boardData.isPlayer(row, col, this.player)) {
+        return result;
+      }
+    }
     return result;
   }
 
-
-  /*
-    getKnightMoves(boardData) {
-      let result = [];
-      const relativeMoves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [-1, 2], [1, 2], [-1, -2], [1, -2]];
-      for (let relativeMove of relativeMoves) {
-        let row = this.row + relativeMove[0];
-        let col = this.col + relativeMove[1];
-        if (!boardData.isPlayer(row, col, this.player)) {
-          result.push([row, col]);
-        }
-      }
-      return result;
-    }
-  
-  
-    getKingMoves(boardData) {
-      let result = [];
-      const relativeMoves = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
-      for (let relativeMove of relativeMoves) {
-        let row = this.row + relativeMove[0];
-        let col = this.col + relativeMove[1];
-        if (!boardData.isPlayer(row, col, this.player)) {
-          result.push([row, col]);
-        }
-      }
-      return result;
-    }
- 
-    
-     */
 }
