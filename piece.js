@@ -40,6 +40,7 @@ class Piece {
 
   getManMoves(boardData) {
     let result = [];
+    let capturedPiece = [];
     let direction = 1;
     if (this.player === BLACK_PLAYER) {
       direction = -1;
@@ -48,40 +49,46 @@ class Piece {
     // white man capture opponent piece
     let position = [this.row + direction, this.col + direction];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
-      position = [position[0] + 1, position[1] + 1];
+      //capturedPiece.push (position);
+      position = [position[0] + 1, position[1] + 1 , position[0], position[1] ];
       result.push(position);
     }
 
     position = [this.row + direction, this.col - direction];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
-      position = [position[0] + 1, position[1] - 1];
+      capturedPiece.push (position);
+      position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     // black man capture opponent piece
     position = [this.row - 1, this.col - 1];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
-      position = [position[0] - 1, position[1] - 1];
+      //capturedPiece.push (position);
+      position = [position[0] - 1, position[1] - 1 , position[0], position[1] ];
       result.push(position);
-    }
+    } 
     position = [this.row - 1, this.col + 1];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
-      position = [position[0] - 1, position[1] + 1];
+      //capturedPiece.push (position);
+      position = [position[0] - 1, position[1] + 1, position[0], position[1] ];
       result.push(position);
-    }
+    } 
 
-    // return to the player only moves he can capture opponent piece if exsict
-    if (result[0] !== undefined) {
+    // return to the player only the moves he can capture opponent if exsict
+    /*if (result[0] !== undefined) {
       return result;
-    }
+    } */
 
     // man move to empty cell
     position = [this.row + direction, this.col + direction];
     if (boardData.isEmpty(position[0], position[1])) {
+      position = [this.row + direction, this.col + direction, undefined, undefined];
       result.push(position);
     }
 
     position = [this.row + direction, this.col - direction];
     if (boardData.isEmpty(position[0], position[1])) {
+      position = [this.row + direction, this.col - direction, undefined, undefined];
       result.push(position);
     }
 
