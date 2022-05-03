@@ -45,19 +45,19 @@ class Game {
     }
 
 
-   const filterGetPossibleMoves = piece.getPossibleMoves(this.boardData);
-   //console.log(filterGetPossibleMoves);
-   for (let i = 0; i< filterGetPossibleMoves.length ; i++ ) {
-     if ((filterGetPossibleMoves[i][2] !== undefined) && (filterGetPossibleMoves[i][3] !== undefined) ){
+    const filterGetPossibleMoves = piece.getPossibleMoves(this.boardData);
+    //console.log(filterGetPossibleMoves);
+    for (let i = 0; i < filterGetPossibleMoves.length; i++) {
+      if ((filterGetPossibleMoves[i][2] !== undefined) && (filterGetPossibleMoves[i][3] !== undefined)) {
         finalPossibleMoves.push(filterGetPossibleMoves[i]);
-     }
-     //console.log(1);
-   }
-     if (finalPossibleMoves[0] !== undefined) {
-        return finalPossibleMoves ;
-     }
-     console.log(filterGetPossibleMoves);
-    return filterGetPossibleMoves ;
+      }
+      //console.log(1);
+    }
+    if (finalPossibleMoves[0] !== undefined) {
+      return finalPossibleMoves;
+    }
+    console.log(filterGetPossibleMoves);
+    return filterGetPossibleMoves;
   }
 
 }
