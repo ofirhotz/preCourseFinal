@@ -39,33 +39,34 @@ class Piece {
 
   getManMoves(boardData) {
     let result = [];
-    let direction = 1;
-    if (this.player === BLACK_PLAYER) {
-      direction = -1;
-    }
-
+    
     // white man capture opponent piece
-    let position = [this.row + direction, this.col + direction];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
-      position = [position[0] + 1, position[1] + 1, position[0], position[1]];
-      result.push(position);
-    }
+    if (this.player === WHITE_PLAYER) {
+      let position = [this.row + 1, this.col + 1];
+      if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+        position = [position[0] + 1, position[1] + 1, position[0], position[1]];
+        result.push(position);
+      }
 
-    position = [this.row + direction, this.col - direction];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
-      position = [position[0] + 1, position[1] - 1, position[0], position[1]];
-      result.push(position);
+      position = [this.row + 1, this.col - 1];
+      if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+        position = [position[0] + 1, position[1] - 1, position[0], position[1]];
+        result.push(position);
+      }
     }
+    
     // black man capture opponent piece
-    position = [this.row - 1, this.col - 1];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
-      position = [position[0] - 1, position[1] - 1, position[0], position[1]];
-      result.push(position);
-    }
-    position = [this.row - 1, this.col + 1];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
-      position = [position[0] - 1, position[1] + 1, position[0], position[1]];
-      result.push(position);
+    if (this.player === BLACK_PLAYER) {
+      let position = [this.row - 1, this.col - 1];
+      if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+        position = [position[0] - 1, position[1] - 1, position[0], position[1]];
+        result.push(position);
+      }
+      position = [this.row - 1, this.col + 1];
+      if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+        position = [position[0] - 1, position[1] + 1, position[0], position[1]];
+        result.push(position);
+      }
     }
 
     // return to the player only the moves he can capture opponent if exsict
@@ -74,18 +75,35 @@ class Piece {
     } */
 
 
-    // man move to empty cell
-    position = [this.row + direction, this.col + direction];
+    // white man move to empty cell
+    if (this.player === WHITE_PLAYER) {
+    let position = [this.row + 1, this.col + 1];
     if (boardData.isEmpty(position[0], position[1])) {
-      position = [this.row + direction, this.col + direction, undefined, undefined];
+      position = [this.row + 1, this.col + 1, undefined, undefined];
       result.push(position);
     }
 
-    position = [this.row + direction, this.col - direction];
+    position = [this.row + 1, this.col - 1];
     if (boardData.isEmpty(position[0], position[1])) {
-      position = [this.row + direction, this.col - direction, undefined, undefined];
+      position = [this.row + 1, this.col - 1, undefined, undefined];
       result.push(position);
     }
+  }
+
+// black man move to empty cell
+  if (this.player === BLACK_PLAYER) {
+    let position = [this.row - 1, this.col + 1];
+    if (boardData.isEmpty(position[0], position[1])) {
+      position = [this.row - 1, this.col + 1, undefined, undefined];
+      result.push(position);
+    }
+
+    position = [this.row - 1, this.col - 1];
+    if (boardData.isEmpty(position[0], position[1])) {
+      position = [this.row - 1, this.col - 1, undefined, undefined];
+      result.push(position);
+    }
+  }
 
     return result;
   }
@@ -155,7 +173,7 @@ class Piece {
     }
 
     //white king moving to empty cell (1,-1)
-     position = [this.row + 1, this.col - 1];
+    position = [this.row + 1, this.col - 1];
     if (boardData.isEmpty(position[0], position[1])) {
       position = [this.row + 1, this.col - 1, undefined, undefined];
       result.push(position);
@@ -193,7 +211,7 @@ class Piece {
     }
 
     // king moving to empty cell (-1,1)
-     position = [this.row - 1, this.col + 1];
+    position = [this.row - 1, this.col + 1];
     if (boardData.isEmpty(position[0], position[1])) {
       position = [this.row - 1, this.col + 1, undefined, undefined];
       result.push(position);
@@ -230,8 +248,8 @@ class Piece {
       result.push(position);
     }
 
-     // king moving to empty cell (-1,-1)
-     position = [this.row - 1, this.col - 1];
+    // king moving to empty cell (-1,-1)
+    position = [this.row - 1, this.col - 1];
     if (boardData.isEmpty(position[0], position[1])) {
       position = [this.row - 1, this.col - 1, undefined, undefined];
       result.push(position);
@@ -262,9 +280,9 @@ class Piece {
       position = [this.row - 6, this.col - 6, undefined, undefined];
       result.push(position);
     }
-  
+
     // king capture opponent piece (1,1) 
-    
+
     position = [this.row + 1, this.col + 1];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] + 1, position[0], position[1]];
@@ -323,42 +341,42 @@ class Piece {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
-    
+
     // king capture opponent piece (-1,1) 
-    
+
     position = [this.row - 1, this.col + 1];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    } 
+    }
     position = [this.row - 2, this.col + 2];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    } 
+    }
     position = [this.row - 3, this.col + 3];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    } 
+    }
     position = [this.row - 4, this.col + 4];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    } 
+    }
     position = [this.row - 5, this.col + 5];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    } 
+    }
     position = [this.row - 6, this.col + 6];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
-    }  
+    }
 
     // king capture opponent piece (-1,-1) 
-    
+
     position = [this.row - 1, this.col - 1];
     if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] - 1, position[0], position[1]];
