@@ -1,5 +1,6 @@
 # preCourseFinal
 Cyber4s#4 Pre-Course final project
+link : https://drive.google.com/file/d/1VjHDKTVGAuwdT3yM5P_RFaejcEYK3vZO/view?usp=sharing
 
 my bugs :
   1.player doesn't have to capture Opponent. he has to capture opponent if he selected the piece that can capture opponent.
