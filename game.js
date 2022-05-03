@@ -14,7 +14,9 @@ class Game {
       if (possibleMove[0] === row && possibleMove[1] === col) {
         // There is a legal move
         if (possibleMove[2] !== undefined && possibleMove[3] !== undefined) {
+          //console.log(1);
           const name = this.boardData.removePiece(possibleMove[2], possibleMove[3]);
+          //console.log(2);
         }
         const removedPiece = this.boardData.removePiece(row, col);
         piece.row = row;
@@ -36,10 +38,26 @@ class Game {
   }
 
   getPossibleMoves(piece) {
+    const finalPossibleMoves = [];
+    //console.log(piece);
     if (this.currentPlayer !== piece.player || this.winner !== undefined) {
       return [];
     }
-    return piece.getPossibleMoves(this.boardData);
+
+
+   const filterGetPossibleMoves = piece.getPossibleMoves(this.boardData);
+   //console.log(filterGetPossibleMoves);
+   for (let i = 0; i< filterGetPossibleMoves.length ; i++ ) {
+     if ((filterGetPossibleMoves[i][2] !== undefined) && (filterGetPossibleMoves[i][3] !== undefined) ){
+        finalPossibleMoves.push(filterGetPossibleMoves[i]);
+     }
+     //console.log(1);
+   }
+     if (finalPossibleMoves[0] !== undefined) {
+        return finalPossibleMoves ;
+     }
+     console.log(filterGetPossibleMoves);
+    return filterGetPossibleMoves ;
   }
 
 }

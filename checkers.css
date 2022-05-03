@@ -2,28 +2,31 @@ table {
   position: relative;
   top: 250px;
   margin: auto;
+  border: 25px solid black;
 }
 
 .light-cell {
-  background: rgb(211, 210, 210);
+  background: /*rgb(211, 210, 2100 #BA7A3A  rgb(230, 223, 218)*/ #F0D2B4;
   width: 300px;
   height: 300px;
   user-select: none;
 }
 
 .dark-cell {
-  background: rgb(63, 63, 63);
+  background: /*rgb(63, 63, 63) rgb(230, 223, 218)*/ #BA7A3A;
   width: 300px;
   height: 300px;
   user-select: none;
 }
 
 .selected {
-  background: rgb(197, 197, 83);
+  background: rgb(197, 197, 83) ;
+  /*border: 12px solid rgb(46, 26, 4) ;*/
 }
 
 .possible-move {
-  background: rgb(221, 142, 46);
+  background: /*rgb(221, 142, 46)*/rgb(69, 42, 14);
+
 }
 
 .winner-dialog {
@@ -43,6 +46,13 @@ table {
 }
 
 img {
-height: 300px;
-width: 300px;
+  height: 300px;
+  width: 300px;
+}
+
+#title {
+  position: absolute;
+  top: -56px;
+  right: 2500px;
+  font-size: 111px;
 }

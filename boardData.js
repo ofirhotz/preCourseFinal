@@ -47,6 +47,20 @@ class BoardData {
     const piece = this.getPiece(row, col);
     return piece !== undefined && piece.player === player;
   }
+/*
+  cheackVictory(piece) {
+    let opponentPossibleMoves = undefined;
+    const pieces = this.pieces;
+    const opponent =  piece.getOpponent() ;
+    for (let i = 0; i < pieces.length; i++) {
+       opponentPossibleMoves = game.getPossibleMoves(pieces[i]) ;
+       console.log(opponentPossibleMoves);
+      if (opponent == pieces[i].player &&  opponentPossibleMoves !== undefined) {
+        return false;
+      }
+    }
+    return true;
+  } */
 
   cheackVictory(piece) {
     const pieces = this.pieces;
@@ -57,7 +71,7 @@ class BoardData {
       }
     }
     return true;
-  }
+  } 
 
   becomeKing(row, col) {
     const piece = this.getPiece(row, col);

@@ -97,6 +97,7 @@ class Piece {
     result = result.concat(this.getMovesInDirection(-1, 1, boardData));
     result = result.concat(this.getMovesInDirection(1, -1, boardData));
     result = result.concat(this.getMovesInDirection(1, 1, boardData));
+    console.log(result);
     return result;
   }
 
@@ -107,8 +108,27 @@ class Piece {
       let row = this.row + directionRow * i;
       let col = this.col + directionCol * i;
       if (boardData.isEmpty(row, col)) {
-        result.push([row, col]);
-      } else if (boardData.isPlayer(row, col, this.player)) {
+        // empty cells
+        result.push([row, col, undefined, undefined]);
+      }
+
+/*
+      if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+        position = [position[0] + 1, position[1] + 1, position[0], position[1]];
+        result.push(position);
+      } */
+
+      /*
+      if (boardData.isPlayer(row, col, this.player) && row + 1, col + 1) {
+
+        result.push([row, col, row + 1, col + 1]);
+        return result;
+      } */
+
+
+
+      // cell with player (can't move)
+      else if (boardData.isPlayer(row, col, this.player)) {
         return result;
       }
     }
