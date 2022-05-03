@@ -12,7 +12,7 @@ let table;
 let selectedPiece;
 
 function tryUpdateSelectedPiece(row, col) {
-  // Clear all previous possible moves
+  // Clear all previous possible movess
   for (let i = 0; i < BOARD_SIZE; i++) {
     for (let j = 0; j < BOARD_SIZE; j++) {
       table.rows[i].cells[j].classList.remove('possible-move');

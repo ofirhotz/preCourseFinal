@@ -288,23 +288,23 @@ class Piece {
       result.push(position);
     }
     position = [this.row + 2, this.col + 2];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
       position = [position[0] + 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
 
     position = [this.row + 3, this.col + 3];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1) && boardData.isEmpty(position[0] - 2, position[1] - 2) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
       position = [position[0] + 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 4, this.col + 4];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1) && boardData.isEmpty(position[0] - 3, position[1] - 3) && boardData.isEmpty(position[0] - 2, position[1] - 2) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
       position = [position[0] + 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 5, this.col + 5];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] + 1) && boardData.isEmpty(position[0] - 4, position[1] - 4) && boardData.isEmpty(position[0] - 3, position[1] - 3) && boardData.isEmpty(position[0] - 2, position[1] - 2) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
       position = [position[0] + 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
@@ -316,27 +316,27 @@ class Piece {
       result.push(position);
     }
     position = [this.row + 2, this.col - 2];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 3, this.col - 3];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1) && boardData.isEmpty(position[0] - 2, position[1] + 2) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 4, this.col - 4];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1) && boardData.isEmpty(position[0] - 3, position[1] + 3) && boardData.isEmpty(position[0] - 2, position[1] + 2) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 5, this.col - 5];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1) && boardData.isEmpty(position[0] - 4, position[1] + 4) && boardData.isEmpty(position[0] - 3, position[1] + 3) && boardData.isEmpty(position[0] - 2, position[1] + 2) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row + 6, this.col - 6];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] + 1, position[1] - 1) && boardData.isEmpty(position[0] - 5, position[1] + 5) && boardData.isEmpty(position[0] - 4, position[1] + 4) && boardData.isEmpty(position[0] - 3, position[1] + 3) && boardData.isEmpty(position[0] - 2, position[1] + 2) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
       position = [position[0] + 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
@@ -349,27 +349,27 @@ class Piece {
       result.push(position);
     }
     position = [this.row - 2, this.col + 2];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 3, this.col + 3];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1) && boardData.isEmpty(position[0] + 2, position[1] - 2) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 4, this.col + 4];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1) && boardData.isEmpty(position[0] + 3, position[1] - 3) && boardData.isEmpty(position[0] + 2, position[1] - 2) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 5, this.col + 5];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1) && boardData.isEmpty(position[0] + 4, position[1] - 4) && boardData.isEmpty(position[0] + 3, position[1] - 3) && boardData.isEmpty(position[0] + 2, position[1] - 2) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 6, this.col + 6];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] + 1) && boardData.isEmpty(position[0] + 5, position[1] - 5) && boardData.isEmpty(position[0] + 4, position[1] - 4) && boardData.isEmpty(position[0] + 3, position[1] - 3) && boardData.isEmpty(position[0] + 2, position[1] - 2) && boardData.isEmpty(position[0] + 1, position[1] - 1)) {
       position = [position[0] - 1, position[1] + 1, position[0], position[1]];
       result.push(position);
     }
@@ -382,22 +382,22 @@ class Piece {
       result.push(position);
     }
     position = [this.row - 2, this.col - 2];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 3, this.col - 3];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1) && boardData.isEmpty(position[0] + 2, position[1] + 2) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 4, this.col - 4];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1) && boardData.isEmpty(position[0] + 3, position[1] + 3) && boardData.isEmpty(position[0] + 2, position[1] + 2) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
     position = [this.row - 5, this.col - 5];
-    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1)) {
+    if (boardData.isPlayer(position[0], position[1], this.getOpponent()) && boardData.isEmpty(position[0] - 1, position[1] - 1) && boardData.isEmpty(position[0] + 4, position[1] + 4) && boardData.isEmpty(position[0] + 3, position[1] + 3) && boardData.isEmpty(position[0] + 2, position[1] + 2) && boardData.isEmpty(position[0] + 1, position[1] + 1)) {
       position = [position[0] - 1, position[1] - 1, position[0], position[1]];
       result.push(position);
     }
